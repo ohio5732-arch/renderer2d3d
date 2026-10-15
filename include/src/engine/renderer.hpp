@@ -3,11 +3,13 @@
 #include <d3d11.h>
 #include <dxgi.h>
 #include <src/core/window.hpp>
+#include <vector>
 #include <wrl/client.h>
 #define GLM_FORCE_LEFT_HANDED
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm/glm.hpp>
 #include <glm/glm/gtc/matrix_transform.hpp>
+#include <src/engine/entity.hpp>
 using Microsoft::WRL::ComPtr;
 
 struct Vertex {
@@ -26,6 +28,7 @@ public:
   Window currentWindow;
 
   Renderer(Window &passedWindow);
+  void bindRenderable(const Entity &passedEntity);
   void render();
 
 private:
@@ -36,6 +39,8 @@ private:
   ComPtr<ID3D11VertexShader> vs;
   ComPtr<ID3D11PixelShader> ps;
   HRESULT hr;
+
+  std::vector<Entity> renderables;
 
   ComPtr<ID3D11Buffer> createBuffer(UINT byteSize, const void *initialData,
                                     UINT bindFlags,

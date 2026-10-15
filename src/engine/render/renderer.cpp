@@ -1,9 +1,11 @@
 #include "src/engine/renderer.hpp"
 #include "GLFW/glfw3.h"
+#include "glm/glm/ext/matrix_float4x4.hpp"
 #include "glm/glm/ext/matrix_transform.hpp"
-#include "glm/glm/ext/scalar_constants.hpp"
-#include "glm/glm/ext/vector_float3.hpp"
+#include "glm/glm/gtc/matrix_transform.hpp"
+#include "src/engine/entity.hpp"
 #include <combaseapi.h>
+#include <cstring>
 #include <d3d11.h>
 #include <d3dcommon.h>
 #include <d3dcompiler.h>
@@ -97,26 +99,36 @@ void Renderer::render() {
     context->VSSetShader(vs.Get(), nullptr, 0);
     context->PSSetShader(ps.Get(), nullptr, 0);
 
-    D3D11_MAPPED_SUBRESOURCE mapped{};
-    hr = context->Map(constantBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0,
-                      &mapped);
-    if (SUCCEEDED(hr)) {
-      CBData data{};
-      data.time = (float)glfwGetTime();
-      data.transform = glm::mat4(1.0f);
-      data.transform =
-          glm::rotate(data.transform, data.time, glm::vec3(0.0f, 0.0f, 1.0f));
-      data.transform = glm::transpose(data.transform);
-      memcpy(mapped.pData, &data, sizeof(CBData));
-      context->Unmap(constantBuffer.Get(), 0);
-    }
-
     context->VSSetConstantBuffers(0, 1, constantBuffer.GetAddressOf());
 
-    context->Draw(6, 0);
+    for (const auto &renderable : renderables) {
+      D3D11_MAPPED_SUBRESOURCE mapped{};
+      hr = context->Map(constantBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0,
+                        &mapped);
+      if (SUCCEEDED(hr)) {
+        CBData data{};
+        data.time = (float)glfwGetTime();
+        data.transform = glm::mat4(1.0f);
+        data.transform = glm::translate(
+            data.transform,
+            glm::vec3(renderable.TransformProperties.position.x,
+                      renderable.TransformProperties.position.y, 0));
+        memcpy(mapped.pData, &data, sizeof(CBData));
+
+        context->Unmap(constantBuffer.Get(), 0);
+
+        context->Draw(6, 0);
+      }
+    }
+
     swapChain->Present(1, 0);
     glfwPollEvents();
   }
+}
+
+void Renderer::bindRenderable(const Entity &PassedEntity) {
+  std::cout << "binded a entity\n";
+  renderables.push_back(PassedEntity);
 }
 
 ComPtr<ID3D11Buffer> Renderer::createBuffer(UINT byteSize,
