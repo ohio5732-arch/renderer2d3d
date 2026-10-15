@@ -1,0 +1,26 @@
+[
+{
+  "directory": "E:/repos/renderer2d/out/Debug",
+  "command": "\"C:\\Program Files\\LLVM\\bin\\clang++.exe\" -IE:/repos/renderer2d/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\renderer2d.dir\\src\\core\\main.cpp.obj -c E:\\repos\\renderer2d\\src\\core\\main.cpp",
+  "file": "E:/repos/renderer2d/src/core/main.cpp",
+  "output": "E:/repos/renderer2d/out/Debug/CMakeFiles/renderer2d.dir/src/core/main.cpp.obj"
+},
+{
+  "directory": "E:/repos/renderer2d/out/Debug",
+  "command": "\"C:\\Program Files\\LLVM\\bin\\clang++.exe\" -IE:/repos/renderer2d/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\renderer2d.dir\\src\\core\\window.cpp.obj -c E:\\repos\\renderer2d\\src\\core\\window.cpp",
+  "file": "E:/repos/renderer2d/src/core/window.cpp",
+  "output": "E:/repos/renderer2d/out/Debug/CMakeFiles/renderer2d.dir/src/core/window.cpp.obj"
+},
+{
+  "directory": "E:/repos/renderer2d/out/Debug",
+  "command": "\"C:\\Program Files\\LLVM\\bin\\clang++.exe\" -IE:/repos/renderer2d/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\renderer2d.dir\\src\\engine\\app.cpp.obj -c E:\\repos\\renderer2d\\src\\engine\\app.cpp",
+  "file": "E:/repos/renderer2d/src/engine/app.cpp",
+  "output": "E:/repos/renderer2d/out/Debug/CMakeFiles/renderer2d.dir/src/engine/app.cpp.obj"
+},
+{
+  "directory": "E:/repos/renderer2d/out/Debug",
+  "command": "\"C:\\Program Files\\LLVM\\bin\\clang++.exe\" -IE:/repos/renderer2d/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\renderer2d.dir\\src\\engine\\render\\renderer.cpp.obj -c E:\\repos\\renderer2d\\src\\engine\\render\\renderer.cpp",
+  "file": "E:/repos/renderer2d/src/engine/render/renderer.cpp",
+  "output": "E:/repos/renderer2d/out/Debug/CMakeFiles/renderer2d.dir/src/engine/render/renderer.cpp.obj"
+}
+]

@@ -1,0 +1,16 @@
+# ninja log v7
+68	2704	8136094846648584	CMakeFiles/renderer2d.dir/src/main.cpp.obj	99d230bc7dfcafb3
+2029	2146	8137018629994815	renderer2d.exe	d8af51446ad86fec
+3	313	8137747259401644	build.ninja	1fec05feaae7b5b7
+3	313	8137747259361766	E:/repos/renderer2d/out/Debug/cmake_install.cmake	1fec05feaae7b5b7
+70	1999	8137018610407181	CMakeFiles/renderer2d.dir/src/core/main.cpp.obj	8b86a1c07748fefc
+23	836	8136140437673814	CMakeFiles/renderer2d.dir/src/core/glfwMain.cpp.obj	ebdc7d3cb1801ee6
+76	1955	8137018610467019	CMakeFiles/renderer2d.dir/src/engine/app.cpp.obj	6daa0feac1a7fbc6
+81	2029	8137018610516883	CMakeFiles/renderer2d.dir/src/engine/render/renderer.cpp.obj	c43177ed1ef78bf5
+15	1381	8136181613248760	CMakeFiles/renderer2d.dir/src/core/window.cpp.obj	f124d8b22e90880c
+17	68	8137020076972015	CMakeFiles/copy_resources	1f1cabb01a2a04a8
+17	68	8137020076972015	E:/repos/renderer2d/out/Debug/CMakeFiles/copy_resources	1f1cabb01a2a04a8
+94	166	8137747293656355	CMakeFiles/copy_resources	1f1cabb01a2a04a8
+94	166	8137747293656355	E:/repos/renderer2d/out/Debug/CMakeFiles/copy_resources	1f1cabb01a2a04a8
+13	57	8137747307634016	CMakeFiles/copy_resources	1f1cabb01a2a04a8
+13	57	8137747307634016	E:/repos/renderer2d/out/Debug/CMakeFiles/copy_resources	1f1cabb01a2a04a8

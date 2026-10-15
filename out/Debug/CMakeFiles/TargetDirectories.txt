@@ -1,0 +1,4 @@
+E:/repos/renderer2d/out/Debug/CMakeFiles/renderer2d.dir
+E:/repos/renderer2d/out/Debug/CMakeFiles/copy_resources.dir
+E:/repos/renderer2d/out/Debug/CMakeFiles/edit_cache.dir
+E:/repos/renderer2d/out/Debug/CMakeFiles/rebuild_cache.dir
