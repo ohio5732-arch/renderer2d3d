@@ -16,7 +16,7 @@ App::~App() {
 
 void App::AppInit() { AppRenderer->render(); }
 
-Entity App::createEntity(vec2 position, vec2 scale) {
+Entity App::createEntity(glm::vec3 position, glm::vec3 scale) {
   Entity newEntity{};
   newEntity.TransformProperties.position = position;
   newEntity.TransformProperties.scale = scale;

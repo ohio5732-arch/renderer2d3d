@@ -10,6 +10,8 @@ public:
   bool shouldClose();
   HWND getWin32Window();
   void loop();
+  void terminate();
+  bool isKeyDown(int key);
 
 private:
   GLFWwindow *handler;

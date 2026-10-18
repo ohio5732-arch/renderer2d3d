@@ -2,6 +2,7 @@
 
 #include "glm/glm/ext/vector_float2.hpp"
 #include "src/engine/entity.hpp"
+#include <functional>
 #include <src/core/window.hpp>
 #include <src/engine/renderer.hpp>
 
@@ -13,7 +14,7 @@ public:
   ~App();
 
   void AppInit();
-  Entity createEntity(vec2 position, vec2 scale);
+  Entity createEntity(glm::vec3 position, glm::vec3 scale);
 
 private:
   Window *AppWindow;

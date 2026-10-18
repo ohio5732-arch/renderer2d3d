@@ -12,15 +12,27 @@
 #include <src/engine/entity.hpp>
 using Microsoft::WRL::ComPtr;
 
+#include "tiny_obj_loader.h"
+
 struct Vertex {
   glm::vec3 position;
+  glm::vec3 normal;
   glm::vec4 color;
 };
 
 struct CBData {
-  glm::mat4 transform; // bytes 0-63  -> u_transform
-  float time;          // bytes 64-67 -> u_time
-  float padding[3];    // bytes 68-79, keeps the size a multiple of 16
+  glm::mat4 transform;
+  glm::mat4 world;
+  glm::mat4 normalMatrix;
+  float time;
+  glm::vec3 lightDir;
+  glm::vec3 cameraPos;
+  float pad;
+};
+
+struct MeshData {
+  std::vector<Vertex> vertices;
+  std::vector<uint32_t> indices;
 };
 
 class Renderer {
@@ -47,6 +59,9 @@ private:
                                     D3D11_USAGE usage = D3D11_USAGE_DEFAULT,
                                     UINT cpuAccess = 0);
   ComPtr<ID3D11Buffer> createVertexBuffer(Vertex vertices[], UINT byteSize);
+  ComPtr<ID3D11Buffer> createIndexBuffer(uint32_t indices[], UINT byteSize);
   ComPtr<ID3D11Buffer> createConstantBuffer(UINT byteSize);
   void CompileShaders(const wchar_t *vsSrc, const wchar_t *psSrc);
+  MeshData buildMesh(const tinyobj::attrib_t &attrib,
+                     const std::vector<tinyobj::shape_t> &shapes);
 };

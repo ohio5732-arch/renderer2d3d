@@ -19,6 +19,16 @@ Window::Window(int width, int height, const char *title) {
 
 bool Window::shouldClose() { return glfwWindowShouldClose(handler); }
 
+void Window::terminate() { glfwSetWindowShouldClose(handler, true); }
+
+bool Window::isKeyDown(int key) {
+  if (glfwGetKey(handler, key) == GLFW_PRESS) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 void Window::loop() { glfwPollEvents(); }
 
 Window::~Window() {
